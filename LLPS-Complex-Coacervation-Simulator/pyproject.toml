@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llps-vo-simulator"
+version = "0.1.0"
+description = "Standalone Voorn–Overbeek complex coacervation simulator"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26,<3",
+  "scipy>=1.11,<2",
+  "Flask>=3.0,<4",
+]
+
+[project.scripts]
+vo-sim = "llps_vo_simulator.vo_web:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+llps_vo_simulator = ["templates/*.html", "static/vendor/mathjax/**/*", "static/vendor/mathjax/LICENSE"]
